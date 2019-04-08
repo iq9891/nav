@@ -1,7 +1,7 @@
 <template>
   <div class="w-nav">
     <div class="w-nav-eye">
-      <img :src="src" class="w-nav-eye-img">
+      <img :src="imgLogo || logo" class="w-nav-eye-img">
     </div>
     <div class="w-nav-main" :class="showLogin ? 'w-nav-main-active': ''">
       <div>
@@ -26,7 +26,7 @@ export default {
   name: 'w-nav',
   data() {
     return {
-      src: '',
+      logo,
     };
   },
   props: {
@@ -41,9 +41,6 @@ export default {
     imgLogo: {
       type: String,
     },
-  },
-  created() {
-    this.src = this.imgLogo || logo;
   },
   watch: {
     loginFlg(val, oldVal) {
