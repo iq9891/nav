@@ -43,7 +43,7 @@ export default {
     },
   },
   created() {
-    this.src = this.imgLogo ? this.imgLogo : logo;
+    this.src = this.imgLogo || logo;
   },
   watch: {
     loginFlg(val, oldVal) {
