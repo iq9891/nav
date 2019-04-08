@@ -20,13 +20,11 @@
 </template>
 
 <script>
-import logo from './logo.png';
-
 export default {
   name: 'w-nav',
   data() {
     return {
-      logo,
+      logo: 'https://static2.evente.cn/static/img/logo_nav_201804081.png',
     };
   },
   props: {
