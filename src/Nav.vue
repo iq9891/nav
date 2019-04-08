@@ -61,7 +61,7 @@ export default {
     myOrder() {
       this.$emit('myOrder');
     },
-    //发布
+    // 发布
     release() {
       this.$emit('release');
     },
