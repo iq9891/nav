@@ -1,0 +1,45 @@
+{
+  "name": "emnav",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "vuepress dev site",
+    "build": "vue-cli-service build --target lib --name emnav 'src/Nav.vue'",
+    "build:site": "export GH=1 && vuepress build site",
+    "site": "yarn build:site && bash scripts/deploy-gh.sh",
+    "lint": "vue-cli-service lint",
+    "prepublishOnly": "yarn build",
+    "precommit": "lint-staged"
+  },
+  "main": "dist/emnav.umd.js",
+  "unpkg": "dist/emnav.umd.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "dependencies": {
+    "core-js": "^2.6.5",
+    "vue": "^2.6.6"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.5.0",
+    "@vue/cli-plugin-eslint": "^3.5.0",
+    "@vue/cli-service": "^3.5.0",
+    "@vue/eslint-config-airbnb": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "fibers": "^3.1.1",
+    "lint-staged": "^8.1.4",
+    "node-sass": "^4.11.0",
+    "sass": "^1.17.2",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.5.21",
+    "vuepress": "^1.0.0-alpha.46"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}
