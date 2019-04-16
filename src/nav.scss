@@ -1,90 +1,70 @@
 .w-nav {
-  height: 72px;
-  line-height: 72px;
+  height: 60px;
+  line-height: 60px;
   width: 100%;
   position: relative;
   z-index: 2;
   background: #fff;
   box-shadow: 0 2px 20px 2px rgba(0, 0, 0, 0.04);
-  padding: 0 90px;
   font-size: 0;
   box-sizing: border-box;
-  min-width: 700px;
-
-  &-eye {
-    float: left;
-    width: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 72px;
-
-    &-img {
-      width: 60px;
-      height: 20px;
-    }
-  }
-
-  &-main {
-    float: left;
-    width: calc(100% - 170px);
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &-active {
-      width: calc(100% - 218px);
-    }
-
-    &-new {
-      text-decoration: none !important;
-      font-family: 'PingFangSC-Semibold';
-      font-size: 14px;
-      color: #666;
-      letter-spacing: 0;
-      margin-right: 30px;
-
-      &:last-child {
-        margin-right: 0;
-      }
-
-      &:hover {
-        text-decoration: none !important;
-        cursor: pointer;
-      }
-    }
-  }
-
-  &-btn {
-    float: left;
-    width: 110px;
-    height: 30px;
-    line-height: 30px;
-    font-family: 'PingFangSC-Semibold';
-    font-size: 12px;
-    color: #fff;
-    background-color: #1996f9;
-    cursor: pointer;
-    text-align: center;
-    margin-top: 20px;
-
-    &-icon {
-      width: 14px;
-      height: 13px;
-      margin-right: 6px;
-      vertical-align: sub;
-    }
-  }
 
   &-box {
-    float: left;
-    margin-left: 20px;
+    width: 1100px;
+    margin: 0 auto;
 
-    &-logout {
-      color: #1996f9;
-      font-size: 14px;
-      cursor: pointer;
+    &-eye {
+      float: left;
+      width: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60px;
+
+      &-img {
+        width: 60px;
+        height: 20px;
+      }
+    }
+
+    &-main {
+      float: right;
+      height: 60px;
+      display: flex;
+      align-items: center;
+
+      &-new {
+        text-decoration: none !important;
+        font-family: 'PingFangSC-Regular';
+        font-size: 14px;
+        color: #333;
+        letter-spacing: 0;
+        line-height: 14px;
+        margin-right: 36px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &:hover {
+          text-decoration: none !important;
+          cursor: pointer;
+        }
+      }
+
+      &-btn {
+        display: inline-block;
+        width: 76px;
+        height: 60px;
+        cursor: pointer;
+        vertical-align: middle;
+
+        &-icon {
+          width: 76px;
+          height: 25px;
+          margin-top: 17px;
+        }
+      }
     }
   }
 }

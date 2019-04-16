@@ -1,20 +1,19 @@
 <template>
   <div class="w-nav">
-    <div class="w-nav-eye">
-      <img :src="imgLogo || logo" class="w-nav-eye-img">
-    </div>
-    <div class="w-nav-main" :class="showLogin ? 'w-nav-main-active': ''">
-      <div>
-        <a href="javascript:;" class="w-nav-main-new" @click="myOrder">我的订单</a>
-        <a href="javascript:;" class="w-nav-main-new" @click="organizer">主办方管理</a>
+    <div class="w-nav-box">
+      <div class="w-nav-box-eye">
+        <img :src="imgLogo || logo" class="w-nav-box-eye-img">
       </div>
-    </div>
-    <div class="w-nav-btn" @click="release">
-      <img class="w-nav-btn-icon" src="./release.png"/>免费发活动
-    </div>
-    <div v-if="showLogin" class="w-nav-box">
-      <span v-if="loginFlg" class="w-nav-box-logout" @click="logout">退出</span>
-      <span v-if="!loginFlg" class="w-nav-box-logout" @click="login">登录</span>
+      <div class="w-nav-box-main">
+        <a href="javascript:;" class="w-nav-box-main-new" @click="myOrder">{{order}}</a>
+        <a v-if="isChina" href="javascript:;" class="w-nav-box-main-new" @click="organizer">主办方管理</a>
+        <span v-if="loginFlg" class="w-nav-box-main-new" @click="logoutFun">{{logut}}</span>
+        <span v-if="!loginFlg" class="w-nav-box-main-new" @click="loginFun">{{login}}</span>
+        <span class="w-nav-box-main-new" @click="languageFun">{{language}}</span>
+        <div v-if="isChina" class="w-nav-box-main-btn" >
+          <img @click="release" class="w-nav-box-main-btn-icon" src="./release.png"/>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -28,15 +27,31 @@ export default {
     };
   },
   props: {
-    loginFlg: {
+    isChina: {  // 是中文版为true
       type: Boolean,
       default: true,
     },
-    showLogin: {
+    loginFlg: { // 是否登录
       type: Boolean,
       default: false,
     },
-    imgLogo: {
+    login: { // 登录文案
+      type: String,
+      default: '登录',
+    },
+    logut: { // 退出文案
+      type: String,
+      default: '退出',
+    },
+    order: { // 我的订单文案
+      type: String,
+      default: '我的订单',
+    },
+    language: { // 语言文案
+      type: String,
+      default: 'English',
+    },
+    imgLogo: { // 主板图案
       type: String,
     },
   },
@@ -46,11 +61,36 @@ export default {
         this.loginFlg = val;
       }
     },
+    isChina(val, oldVal) {
+      if (val !== oldVal) {
+        this.isChina = val;
+      }
+    },
+    login(val, oldVal) {
+      if (val !== oldVal) {
+        this.login = val;
+      }
+    },
+    logut(val, oldVal) {
+      if (val !== oldVal) {
+        this.logut = val;
+      }
+    },
+    order(val, oldVal) {
+      if (val !== oldVal) {
+        this.order = val;
+      }
+    },
+    language(val, oldVal) {
+      if (val !== oldVal) {
+        this.language = val;
+      }
+    },
   },
   methods: {
-    // 退出
-    logout() {
-      this.$emit('logout');
+    // 语言
+    languageFun() {
+      this.$emit('language');
     },
     // 我的订单
     myOrder() {
@@ -65,8 +105,12 @@ export default {
       this.$emit('organizer');
     },
     // 登录
-    login() {
+    loginFun() {
       this.$emit('login');
+    },
+    // 退出
+    logoutFun() {
+      this.$emit('logout');
     },
   },
 };
