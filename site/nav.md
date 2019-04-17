@@ -15,19 +15,24 @@
 
 |参数|说明|
 |---|----|
-|logout|退出按钮方法|
-|login|登录按钮方法|
-|organizer|主办方管理按钮方法|
-|release|发布按钮方法|
-|myOrder|我的订单按钮方法|
+|logout|点击退出按钮emit出方法|
+|login|点击登录按钮emit出方法|
+|organizer|点击主办方管理按钮emit出方法|
+|release|点击发布按钮emit出方法|
+|myOrder|点击我的订单按钮emit出方法|
+|language|点击语言版本emit出方法|
 
 ### 属性
 
 |参数|说明|类型|是否必填|默认值|
 |---|----|---|-------|-----|
-|loginFlg|是否登录|Boolean|否|无|
-|showLogin|是否需要展示登录退出按钮|Boolean|否|false|
+|loginFlg|是否登录|Boolean|是|false|
+|isChina|当前版本是否是中文|Boolean|是|false|
 |imgLogo|主办logo|String|否|活动易logo|
+|login|登录不同版本文案|String|否|登录|
+|logut|退出不同版本文案|String|否|退出|
+|order|我的订单不同版本文案|String|否|我的订单|
+|language|语言不同版本文案|String|否|语言|
 
 <script>
 import WNav from '../src/Nav';
