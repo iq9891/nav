@@ -12,9 +12,10 @@
   &-box {
     width: 1100px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
 
     &-eye {
-      float: left;
       width: 60px;
       display: flex;
       align-items: center;
@@ -28,7 +29,6 @@
     }
 
     &-main {
-      float: right;
       height: 60px;
       display: flex;
       align-items: center;
