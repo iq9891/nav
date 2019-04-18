@@ -25,6 +25,21 @@
         </div>
       </div>
     </div>
+    <div v-if="showMask" class="w-nav-mask"></div>
+    <div v-if="showMask" class="w-nav-modal">
+      <p class="w-nav-modal-close">
+        <img @click="close" src="https://static2.evente.cn/static/img/login-icon-close1.png">
+      </p>
+      <p class="w-nav-modal-title">Ticket Buyer</p>
+      <div class="w-nav-modal-box">
+        <input v-model="email" class="w-nav-modal-box-input" type="text" placeholder="Email Address">
+      </div>
+      <div @click="submit" class="w-nav-modal-btn" :class="email?'w-nav-modal-btn-active':'w-nav-modal-btn-disabled'">Submit</div>
+      <div v-if="error" class="w-nav-modal-tip">
+        <img src="https://static2.evente.cn/static/img/login-icon-error1.png">
+        Check your email
+      </div>
+    </div>
   </div>
 </template>
 
@@ -40,6 +55,9 @@ export default {
       orderSrc,
       orderFlag: false,
       erweimaFlag: false,
+      email: '', //邮箱
+      error: false, //错误提示
+      showMask: false, //弹窗展示
       logo: 'https://static2.evente.cn/static/img/logo_nav_201804081.png',
     };
   },
@@ -84,6 +102,9 @@ export default {
     },
     // 我的订单
     myOrder() {
+      if (!this.isChina) {
+        this.showMask = true;
+      }
       this.$emit('myOrder');
     },
     // 发布
@@ -115,6 +136,26 @@ export default {
     // 退出
     logoutFun() {
       this.$emit('logout');
+    },
+    // 关闭弹窗
+    close() {
+      this.showMask = false;
+    },
+    // 提交
+    submit() {
+      if (!this.emailTest(this.email)) {
+        this.error = true;
+      } else {
+        this.error = false;
+        // ajax
+      }
+    },
+    emailTest(val) {
+      /* eslint-disable */
+      //Email
+      const emailPattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+      /* eslint-disable */
+      return emailPattern.test(val);
     },
   },
 };
