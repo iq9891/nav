@@ -1,9 +1,9 @@
 .w-nav {
   height: 60px;
-  line-height: 60px;
   width: 100%;
   position: relative;
   z-index: 2;
+  min-width: 1100px;
   background: #fff;
   box-shadow: 0 2px 20px 2px rgba(0, 0, 0, 0.04);
   font-size: 0;
@@ -90,6 +90,108 @@
           height: 25px;
           margin-top: 17px;
         }
+      }
+    }
+  }
+
+  &-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  &-modal {
+    width: 335px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -165px;
+    z-index: 99999;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    box-sizing: border-box;
+
+    &-close {
+      text-align: right;
+
+      & img {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+      }
+    }
+
+    &-title {
+      font-family: Helvetica;
+      font-size: 20px;
+      color: #333;
+      letter-spacing: 0;
+      line-height: 20px;
+    }
+
+    &-box {
+      margin-top: 36px;
+      padding-bottom: 20px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #f0f0f8;
+
+      &-input {
+        width: 100%;
+        -webkit-appearance: none;
+        padding: 0;
+        border: 0;
+        color: #aaa;
+
+        &:focus {
+          outline: none;
+        }
+
+        &::-webkit-input-placeholder {
+          color: #aaa;
+        }
+      }
+    }
+
+    &-btn {
+      color: #fff;
+      font-family: Helvetica;
+      font-size: 16px;
+      height: 40px;
+      line-height: 40px;
+      width: 276px;
+      margin: 28px auto 0;
+      text-align: center;
+      border-radius: 22px;
+
+      &-active {
+        background: #238aff;
+        cursor: pointer;
+      }
+
+      &-disabled {
+        cursor: no-drop;
+        background: #a0a0a0;
+      }
+    }
+
+    &-tip {
+      margin-top: 16px;
+      font-family: Helvetica;
+      font-size: 12px;
+      color: #f04;
+      width: 100%;
+      text-align: center;
+
+      & img {
+        width: 14px;
+        height: 14px;
+        vertical-align: sub;
       }
     }
   }

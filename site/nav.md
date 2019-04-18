@@ -26,7 +26,7 @@
   <br>
   <br>
   <br>
-  <w-nav :login="loginText" :logut="logutText" :lang="lang ? 'zh_HK' : 'en_US'" :order="orderText" :language="lang ? '中文' : 'English'" :loginFlg="loginFlg" />
+  <w-nav :login="loginText" :logut="logutText" :lang="lang ? 'zh_HK' : 'en_US'" :order="orderText" :language="lang ?'English' : '中文'" :loginFlg="loginFlg" />
 </p>
 <br>
 <br>
