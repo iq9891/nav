@@ -16,7 +16,6 @@
     "eslint": "eslint --ext .js,.vue site emnav --fix",
     "stylelint": "stylelint site/**/*.scss emnav/**/*.scss",
     "lint": "npm run eslint && npm run stylelint",
-    "lint-staged": "lint-staged",
     "test": "jest --config jest.conf.js --no-cache --verbose",
     "codecov": "codecov ./coverage/clover.xml",
     "deploy-gh": "yarn build:site && bash scripts/deploy-gh.sh",
@@ -116,6 +115,7 @@
     "webpack-bundle-analyzer": "^2.11.1",
     "webpack-dev-middleware": "^3.1.0",
     "webpack-hot-middleware": "^2.21.2",
+    "emlogin": "^0.3.1",
     "webpack-merge": "^4.1.2"
   },
   "engines": {
@@ -128,22 +128,5 @@
     "Android >= 4.0",
     "last 2 versions",
     "not ie <= 8"
-  ],
-  "lint-staged": {
-    "emnav/**/*.vue": [
-      "npm run eslint"
-    ],
-    "emnav/**/*.js": [
-      "npm run eslint"
-    ],
-    "emnav/**/*.scss": [
-      "npm run stylelint"
-    ]
-  },
-  "pre-commit": [
-    "lint-staged"
-  ],
-  "dependencies": {
-    "emlogin": "^0.3.1"
-  }
+  ]
 }
