@@ -46,7 +46,7 @@
 |langHandle|点击语言版本的方法。如果有点击语言之后保存语言调用，没有点击保存之后刷新。|Function|否|无|
 
 <script>
-import WNav from '../src/Nav';
+import WNav from './Nav';
 
 export default {
   data() {
@@ -67,6 +67,8 @@ export default {
 </script>
 
 <style>
+@import './nav.scss';
+@import '../../node_modules/emlogin/dist/login/style/login.css';
 .page {
   position: relative;
   z-index: 222;

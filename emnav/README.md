@@ -22,5 +22,5 @@ yarn add emnav
 ```
 
 ::: warning 注意
-请确保你的 Node.js 版本 >= 11.0.0。
+请确保你的 Node.js 版本 >= 9.0.0。
 :::
