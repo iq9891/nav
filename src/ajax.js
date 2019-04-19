@@ -51,8 +51,8 @@ export default function upload(option) {
   }
   /* eslint-disable no-bitwise */
   const guidS4 = () => (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
-  const getGuid = () => (guidS4() + guidS4() + guidS4() +
-  guidS4() + guidS4() + guidS4() + guidS4() + guidS4());
+  const getGuid = () => (guidS4() + guidS4() + guidS4()
+  + guidS4() + guidS4() + guidS4() + guidS4() + guidS4());
   const guid = localStorage['X-Session-Id'] || getGuid();
   localStorage['X-Session-Id'] = guid;
 
