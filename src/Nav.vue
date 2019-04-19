@@ -223,7 +223,7 @@ export default {
     logoutFun() {
       ajax({
         type: 'GET',
-        action: `${this.logoutAction}?id=${this.orgid}`,
+        action: `${this.logoutAction}?org_id=${this.orgid}`,
         onSuccess: (res) => {
           if (res.code === 10000) {
             logoutpc(res, this.orgid, this, () => {
