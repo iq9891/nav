@@ -116,6 +116,7 @@ export default {
     // 登录相关 end
     logoutAction: String,
     langHandle: Function,
+    sendEmailEnglishAction: String,
   },
   created() {
     this.lang = window.$cookie.get('locale') || 'zh_CN';
@@ -189,20 +190,10 @@ export default {
               this.$emit('logout');
             });
           } else {
-            if (self.$EmfeMessage) {
-              self.$EmfeMessage.error({
-                content: response.message,
-              });
-            }
+            this.handleAjaxError(response.message);
           }
         },
-        onError: (err, response) => {
-          if (self.$EmfeMessage) {
-            self.$EmfeMessage.error({
-              content: response.message,
-            });
-          }
-        },
+        onError: this.handleAjaxError,
       });
     },
     // 关闭弹窗
@@ -215,7 +206,30 @@ export default {
         this.error = true;
       } else {
         this.error = false;
-        // ajax
+        ajax({
+          type: 'GET',
+          action: `${this.sendEmailEnglishAction}?email=${this.email}`,
+          onSuccess: (res) => {
+            if (res.code === 10000) {
+              this.close();
+              this.$emit('sendEmail');
+            } else {
+              this.handleAjaxError(res.message);
+            }
+          },
+          onError: (res, message) => {
+            this.handleAjaxError(message);
+          },
+        });
+      }
+    },
+    handleAjaxError: (message) => {
+      if (this && Object.prototype.hasOwnProperty.call(this, '$EmfeMessage')) {
+        this.$EmfeMessage.error({
+          content: message,
+        });
+      } else {
+        alert(message);
       }
     },
     emailTest(val) {
