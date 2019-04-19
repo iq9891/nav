@@ -1,6 +1,6 @@
 {
   "name": "emnav",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "scripts": {
     "start": "vuepress dev site",
     "build": "vue-cli-service build --target lib --name emnav 'src/Nav.vue'",
@@ -18,8 +18,8 @@
   ],
   "dependencies": {
     "core-js": "^2.6.5",
-    "emlogin": "^0.3.1",
     "em-cookie": "^1.1.1",
+    "emlogin": "^0.3.1",
     "vue": "^2.6.6"
   },
   "devDependencies": {
