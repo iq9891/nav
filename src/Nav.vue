@@ -118,7 +118,7 @@ export default {
     langHandle: Function,
   },
   created() {
-    this.lang = $cookie.get('locale') || 'zh_CN';
+    this.lang = window.$cookie.get('locale') || 'zh_CN';
     this.isChina = this.lang === 'zh_CN';
     this.language = this.isChina ? 'English' : '中文';
     this.loginFlg = !!window.$cookie.get(`Authorization?org_id=${this.orgid}`);
@@ -137,7 +137,7 @@ export default {
       }, 100);
     },
     setLocale(locale) {
-      $cookie.set('locale', locale, '1m', '/', this.domain || '');
+      window.$cookie.set('locale', locale, '1m', '/', this.domain || '');
     },
     // 我的订单
     myOrder() {
