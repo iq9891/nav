@@ -81,6 +81,7 @@
       :sendEnglishAction="sendEnglishAction"
       :loginEnglishAction="loginEnglishAction"
       :lang="lang"
+      :domain="domain"
     ></w-login>
   </div>
 </template>
