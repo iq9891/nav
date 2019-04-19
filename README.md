@@ -13,6 +13,7 @@
     :sendEnglishAction="sendEnglishAction"
     :loginEnglishAction="loginEnglishAction"
     :logoutAction="loginEnglishAction"
+    :sendEmailEnglishAction="loginEnglishAction"
     domain=""
   /&gt;
 <br>
@@ -28,6 +29,7 @@
 |organizer|点击主办方管理按钮emit出方法|
 |release|点击发布按钮emit出方法|
 |myOrder|点击我的订单按钮emit出方法|
+|sendEmail|英文版点击我的订单发送成功方法|
 
 ### 属性
 
@@ -42,6 +44,7 @@
 |orgid|主办id|String|是|-|
 |sendAction|发送验证码接口地址(中文版)|String|是|-|
 |sendEnglishAction|发送验证码接口地址(英文版)|String|是|-|
+|sendEmailEnglishAction|点击订单发送邮件接口地址(英文版)|String|是|-|
 |domain|设置cookie登录状态的domain|String|否|'evente.cn'|
 |countrycodeAction|获取countrycode接口地址|String|是|-|
 |logoutAction|用户退出接口地址|String|是|-|

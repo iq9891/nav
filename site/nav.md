@@ -6,7 +6,7 @@
 <br>
 
 <p>
-  <w-nav orgid="100015" :countrycodeAction="countrycodeAction" :sendAction="sendAction" :loginAction="loginAction" :sendEnglishAction="sendEnglishAction" :loginEnglishAction="loginEnglishAction" :logoutAction="loginEnglishAction" domain="" />
+  <w-nav orgid="100015" :countrycodeAction="countrycodeAction" :sendAction="sendAction" :loginAction="loginAction" :sendEnglishAction="sendEnglishAction" :loginEnglishAction="loginEnglishAction" :logoutAction="loginEnglishAction" domain="" :sendEmailEnglishAction="loginAction" />
 </p>
 <br>
 <br>
@@ -40,6 +40,7 @@
 |logoutAction|用户退出接口地址|String|是|-|
 |loginAction|用户登录接口地址(中文版)|String|是|-|
 |loginEnglishAction|用户登录接口地址(英文版)|String|是|-|
+|sendEmailEnglishAction|点击订单发送邮件接口地址(英文版)|String|是|-|
 |loginClose|关闭弹框|Function|是|() => {}|
 |loginSuccess|登录成功|Function|是|() => {}|
 |langHandle|点击语言版本的方法。如果有点击语言之后保存语言调用，没有点击保存之后刷新。|Function|否|无|
