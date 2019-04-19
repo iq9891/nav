@@ -155,7 +155,7 @@ export default {
     this.lang = window.$cookie.get('locale') || 'zh_CN';
     this.isChina = this.lang === 'zh_CN';
     this.language = this.isChina ? 'English' : '中文';
-    this.getLoginStatus(orgId);
+    this.getLoginStatus(this.orgid);
   },
   methods: {
     getLoginStatus(orgId) {
@@ -215,7 +215,7 @@ export default {
       this.loginClose();
     },
     loginSucFn() {
-      this.getLoginStatus(val);
+      this.getLoginStatus(this.orgid);
       this.loginSuccess();
     },
     // 登录相关 end
@@ -227,7 +227,7 @@ export default {
         onSuccess: (res) => {
           if (res.code === 10000) {
             logoutpc(res, this.orgid, this, () => {
-              this.getLoginStatus(val);
+              this.getLoginStatus(this.orgid);
               this.$emit('logout');
             });
           } else {
