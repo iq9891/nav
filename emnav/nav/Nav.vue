@@ -88,7 +88,7 @@
 
 <script>
 import emCookie from 'em-cookie';
-import WLogin from 'emlogin/dist/login/Login.vue';
+import WLogin from 'emlogin/dist/login/Login';
 import logoutpc from './logoutpc';
 import ajax from './ajax';
 
@@ -293,8 +293,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-@import './nav.scss';
-@import '../node_modules/emlogin/dist/login/style/login.css';
-</style>
