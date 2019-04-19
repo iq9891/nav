@@ -5,9 +5,16 @@
 
 <br>
 
-<p>
-  <w-nav orgid="100015" :countrycodeAction="countrycodeAction" :sendAction="sendAction" :loginAction="loginAction" :sendEnglishAction="sendEnglishAction" :loginEnglishAction="loginEnglishAction" :logoutAction="loginEnglishAction" domain="" />
-</p>
+  &lt;w-nav
+    orgid="100015"
+    :countrycodeAction="countrycodeAction"
+    :sendAction="sendAction"
+    :loginAction="loginAction"
+    :sendEnglishAction="sendEnglishAction"
+    :loginEnglishAction="loginEnglishAction"
+    :logoutAction="loginEnglishAction"
+    domain=""
+  /&gt;
 <br>
 <br>
 
@@ -43,31 +50,3 @@
 |loginClose|关闭弹框|Function|是|() => {}|
 |loginSuccess|登录成功|Function|是|() => {}|
 |langHandle|点击语言版本的方法。如果有点击语言之后保存语言调用，没有点击保存之后刷新。|Function|否|无|
-
-<script>
-import WNav from '../src/Nav';
-
-export default {
-  data() {
-    return {
-      status: false,
-      lang: false,
-      countrycodeAction: 'https://www.easy-mock.com/mock/5ab386ecca15e11ded65b593/chinese/countrycode',
-      sendAction: 'https://www.easy-mock.com/mock/5ab386ecca15e11ded65b593/chinese/smssend',
-      loginAction: 'https://www.easy-mock.com/mock/5ab386ecca15e11ded65b593/chinese/login',
-      sendEnglishAction: 'https://www.easy-mock.com/mock/5ab386ecca15e11ded65b593/chinese/smssend',
-      loginEnglishAction: 'https://www.easy-mock.com/mock/5ab386ecca15e11ded65b593/chinese/login',
-    };
-  },
-  components: {
-    WNav,
-  },
-};
-</script>
-
-<style>
-.page {
-  position: relative;
-  z-index: 222;
-}
-</style>
