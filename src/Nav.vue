@@ -73,7 +73,7 @@
     <w-login
       :show="loginStatus"
       :close="closeLogin"
-      :success="loginSuccess"
+      :success="loginSucFn"
       :orgid="orgid"
       :countrycodeAction="countrycodeAction"
       :sendAction="sendAction"
@@ -155,9 +155,12 @@ export default {
     this.lang = window.$cookie.get('locale') || 'zh_CN';
     this.isChina = this.lang === 'zh_CN';
     this.language = this.isChina ? 'English' : '中文';
-    this.loginFlg = !!window.$cookie.get(`Authorization?org_id=${this.orgid}`);
+    this.getLoginStatus(orgId);
   },
   methods: {
+    getLoginStatus(orgId) {
+      this.loginFlg = !!window.$cookie.get(`Authorization?org_id=${orgId}`);
+    },
     // 语言
     languageFun() {
       const locale = this.isChina ? 'en_US' : 'zh_CN';
@@ -211,6 +214,10 @@ export default {
       this.loginStatus = false;
       this.loginClose();
     },
+    loginSucFn() {
+      this.getLoginStatus(val);
+      this.loginSuccess();
+    },
     // 登录相关 end
     // 退出
     logoutFun() {
@@ -220,6 +227,7 @@ export default {
         onSuccess: (res) => {
           if (res.code === 10000) {
             logoutpc(res, this.orgid, this, () => {
+              this.getLoginStatus(val);
               this.$emit('logout');
             });
           } else {
@@ -272,6 +280,11 @@ export default {
       const emailPattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
       /* eslint-disable */
       return emailPattern.test(val);
+    },
+  },
+  watch: {
+    orgid(val) {
+      this.getLoginStatus(val);
     },
   },
   components: {

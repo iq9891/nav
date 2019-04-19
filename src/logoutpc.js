@@ -37,7 +37,7 @@ const afterLogin = (callbackUrl, inow, self, callback) => {
 };
 
 export default (result, orgId, self, callback) => {
-  afterLogin(result.data.call_back_url, result.data.call_back_url.length - 1, self, () => {
+  afterLogin(result.data.url_url, result.data.url_url.length - 1, self, () => {
     let domainStr = self.domain || '';
 
     setTimeout(() => {
