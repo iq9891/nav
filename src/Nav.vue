@@ -7,21 +7,19 @@
       <div class="w-nav-box-main">
         <a href="javascript:;" @mouseover="mouseover(true)" @mouseout="mouseout(true)" class="w-nav-box-main-new" @click="myOrder">{{order}}
           <div v-show="orderFlag" class="w-nav-box-main-new-erweima">
-            <img class="w-nav-box-main-new-erweima-img" :src="orderSrc" alt="">
-            <p class="w-nav-box-main-new-erweima-text">扫码查订单</p>
+            <img class="w-nav-box-main-new-erweima-img" src="https://static2.evente.cn/static/img/nav-icon-order1.jpg" alt="">
           </div>
         </a>
         <a v-if="isChina" @mouseover="mouseover(false)" @mouseout="mouseout(false)" href="javascript:;" class="w-nav-box-main-new" @click="organizer">主办方管理
           <div v-show="erweimaFlag" class="w-nav-box-main-new-erweima" style="left:-20px;">
-            <img class="w-nav-box-main-new-erweima-img" :src="erweimaSrc" alt="">
-            <p class="w-nav-box-main-new-erweima-text">扫一扫，下载app</p>
+            <img class="w-nav-box-main-new-erweima-img" src="https://static2.evente.cn/static/img/nav-icon-qr2.png" alt="">
           </div>
         </a>
-        <a v-if="loginFlg" href="javascript:;" class="w-nav-box-main-new" @click="logoutFun">{{logut}}</a>
+        <a v-if="loginFlg" href="javascript:;" class="w-nav-box-main-new" @click="logoutFun">{{logout}}</a>
         <a v-if="!loginFlg" href="javascript:;" class="w-nav-box-main-new" @click="loginFun">{{login}}</a>
         <a href="javascript:;" class="w-nav-box-main-new" @click="languageFun">{{language}}</a>
         <div v-if="isChina" class="w-nav-box-main-btn" >
-          <img @click="release" class="w-nav-box-main-btn-icon" src="./release.png"/>
+          <img @click="release" class="w-nav-box-main-btn-icon" src="https://static2.evente.cn/static/img/nav-icon-release1.png"/>
         </div>
       </div>
     </div>
@@ -40,41 +38,52 @@
         Check your email
       </div>
     </div>
+    <w-login
+      :show="loginStatus"
+      :close="closeLogin"
+      :success="loginSuccess"
+      :orgid="orgid"
+      :countrycodeAction="countrycodeAction"
+      :sendAction="sendAction"
+      :loginAction="loginAction"
+      :sendEnglishAction="sendEnglishAction"
+      :loginEnglishAction="loginEnglishAction"
+      :lang="lang"
+    ></w-login>
   </div>
 </template>
 
 <script>
-import orderSrc from './order';
-import erweimaSrc from './erweima';
+import emCookie from 'em-cookie';
+import WLogin from 'emlogin/dist/login/Login';
+import logoutpc from './logoutpc';
+import ajax from './ajax';
 
 export default {
   name: 'w-nav',
   data() {
     return {
-      erweimaSrc,
-      orderSrc,
+      lang: 'zh_CN',
+      language: '中文',
+      isChina: false,
       orderFlag: false,
       erweimaFlag: false,
       email: '', //邮箱
       error: false, //错误提示
       showMask: false, //弹窗展示
       logo: 'https://static2.evente.cn/static/img/logo_nav_201804081.png',
+      // 登录相关 start
+      loginStatus: false,
+      loginFlg: false,
+      // 登录相关 end
     };
   },
   props: {
-    lang: {  // 什么语言
-      type: String,
-      default: 'zh_HK',
-    },
-    loginFlg: { // 是否登录
-      type: Boolean,
-      default: false,
-    },
     login: { // 登录文案
       type: String,
       default: '登录',
     },
-    logut: { // 退出文案
+    logout: { // 退出文案
       type: String,
       default: '退出',
     },
@@ -82,23 +91,53 @@ export default {
       type: String,
       default: '我的订单',
     },
-    language: { // 语言文案
-      type: String,
-      default: 'English',
+    imgLogo: String, // 主板图案
+    // 登录相关 start
+    // 登录弹框 关闭
+    loginClose: {
+      type: Function,
+      default: () => {},
     },
-    imgLogo: { // 主板图案
-      type: String,
+    // 登录成功
+    loginSuccess: {
+      type: Function,
+      default: () => {},
     },
+    domain: { // 是否cookie存储加 domain
+      type: String,
+      default: 'evente.cn',
+    },
+    orgid: [String, Number],
+    countrycodeAction: String,
+    sendAction: String,
+    loginAction: String,
+    sendEnglishAction: String,
+    loginEnglishAction: String,
+    // 登录相关 end
+    logoutAction: String,
+    langHandle: Function,
   },
-  computed: {
-    isChina() {
-      return this.lang === 'zh_HK';
-    },
+  created() {
+    this.lang = $cookie.get('locale') || 'zh_CN';
+    this.isChina = this.lang === 'zh_CN';
+    this.language = this.isChina ? 'English' : '中文';
+    this.loginFlg = !!window.$cookie.get(`Authorization?org_id=${this.orgid}`);
   },
   methods: {
     // 语言
     languageFun() {
-      this.$emit('language');
+      const locale = this.isChina ? 'en_US' : 'zh_CN';
+      this.setLocale(locale);
+      setTimeout(() => {
+        if (this.langHandle) {
+          this.langHandle();
+        } else {
+          window.location.reload();
+        }
+      }, 100);
+    },
+    setLocale(locale) {
+      $cookie.set('locale', locale, '1m', '/', this.domain || '');
     },
     // 我的订单
     myOrder() {
@@ -129,13 +168,42 @@ export default {
         this.erweimaFlag = false;
       }
     },
-    // 登录
+    // 登录相关 start
     loginFun() {
-      this.$emit('login');
+      this.$emit('login');logoutAction
+      this.loginStatus = true;
     },
+    closeLogin() {
+      this.loginStatus = false;
+      this.loginClose();
+    },
+    // 登录相关 end
     // 退出
     logoutFun() {
-      this.$emit('logout');
+      ajax({
+        type: 'GET',
+        action: `${this.logoutAction}?id=${this.orgid}`,
+        onSuccess: (res) => {
+          if (res.code === 10000) {
+            logoutpc(res, this.orgid, this, () => {
+              this.$emit('logout');
+            });
+          } else {
+            if (self.$EmfeMessage) {
+              self.$EmfeMessage.error({
+                content: response.message,
+              });
+            }
+          }
+        },
+        onError: (err, response) => {
+          if (self.$EmfeMessage) {
+            self.$EmfeMessage.error({
+              content: response.message,
+            });
+          }
+        },
+      });
     },
     // 关闭弹窗
     close() {
@@ -158,9 +226,14 @@ export default {
       return emailPattern.test(val);
     },
   },
+  components: {
+    WLogin,
+    emCookie,
+  },
 };
 </script>
 
 <style scoped lang="scss">
 @import './nav.scss';
+@import '../node_modules/emlogin/dist/login/style/login.css';
 </style>
