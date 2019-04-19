@@ -5,18 +5,41 @@
         <img :src="imgLogo || logo" class="w-nav-box-eye-img">
       </div>
       <div class="w-nav-box-main">
-        <a href="javascript:;" @mouseover="mouseover(true)" @mouseout="mouseout(true)" class="w-nav-box-main-new" @click="myOrder">{{order}}
+        <a
+          href="javascript:;"
+          @mouseover="mouseover(true)"
+          @mouseout="mouseout(true)"
+          class="w-nav-box-main-new"
+          @click="myOrder"
+        >{{order}}
           <div v-show="orderFlag" class="w-nav-box-main-new-erweima">
             <img class="w-nav-box-main-new-erweima-img" src="https://static2.evente.cn/static/img/nav-icon-order1.jpg" alt="">
           </div>
         </a>
-        <a v-if="isChina" @mouseover="mouseover(false)" @mouseout="mouseout(false)" href="javascript:;" class="w-nav-box-main-new" @click="organizer">主办方管理
+        <a
+          v-if="isChina"
+          @mouseover="mouseover(false)"
+          @mouseout="mouseout(false)"
+          href="javascript:;"
+          class="w-nav-box-main-new"
+          @click="organizer"
+        >主办方管理
           <div v-show="erweimaFlag" class="w-nav-box-main-new-erweima" style="left:-20px;">
             <img class="w-nav-box-main-new-erweima-img" src="https://static2.evente.cn/static/img/nav-icon-qr2.png" alt="">
           </div>
         </a>
-        <a v-if="loginFlg" href="javascript:;" class="w-nav-box-main-new" @click="logoutFun">{{logout}}</a>
-        <a v-if="!loginFlg" href="javascript:;" class="w-nav-box-main-new" @click="loginFun">{{login}}</a>
+        <a
+          v-if="loginFlg"
+          href="javascript:;"
+          class="w-nav-box-main-new"
+          @click="logoutFun"
+        >{{logout}}</a>
+        <a
+          v-if="!loginFlg"
+          href="javascript:;"
+          class="w-nav-box-main-new"
+          @click="loginFun"
+        >{{login}}</a>
         <a href="javascript:;" class="w-nav-box-main-new" @click="languageFun">{{language}}</a>
         <div v-if="isChina" class="w-nav-box-main-btn" >
           <img @click="release" class="w-nav-box-main-btn-icon" src="https://static2.evente.cn/static/img/nav-icon-release1.png"/>
@@ -30,9 +53,18 @@
       </p>
       <p class="w-nav-modal-title">Ticket Buyer</p>
       <div class="w-nav-modal-box">
-        <input v-model="email" class="w-nav-modal-box-input" type="text" placeholder="Email Address">
+        <input
+          v-model="email"
+          class="w-nav-modal-box-input"
+          type="text"
+          placeholder="Email Address"
+        >
       </div>
-      <div @click="submit" class="w-nav-modal-btn" :class="email?'w-nav-modal-btn-active':'w-nav-modal-btn-disabled'">Submit</div>
+      <div
+        @click="submit"
+        class="w-nav-modal-btn"
+        :class="email?'w-nav-modal-btn-active':'w-nav-modal-btn-disabled'"
+      >Submit</div>
       <div v-if="error" class="w-nav-modal-tip">
         <img src="https://static2.evente.cn/static/img/login-icon-error1.png">
         Check your email
@@ -55,7 +87,7 @@
 
 <script>
 import emCookie from 'em-cookie';
-import WLogin from 'emlogin/dist/login/Login';
+import WLogin from 'emlogin/dist/login/Login.vue';
 import logoutpc from './logoutpc';
 import ajax from './ajax';
 
@@ -68,9 +100,9 @@ export default {
       isChina: false,
       orderFlag: false,
       erweimaFlag: false,
-      email: '', //邮箱
-      error: false, //错误提示
-      showMask: false, //弹窗展示
+      email: '', // 邮箱
+      error: false, // 错误提示
+      showMask: false, // 弹窗展示
       logo: 'https://static2.evente.cn/static/img/logo_nav_201804081.png',
       // 登录相关 start
       loginStatus: false,
@@ -171,7 +203,7 @@ export default {
     },
     // 登录相关 start
     loginFun() {
-      this.$emit('login');logoutAction
+      this.$emit('login');
       this.loginStatus = true;
     },
     closeLogin() {
@@ -190,7 +222,7 @@ export default {
               this.$emit('logout');
             });
           } else {
-            this.handleAjaxError(response.message);
+            this.handleAjaxError(res.message);
           }
         },
         onError: this.handleAjaxError,
@@ -229,6 +261,7 @@ export default {
           content: message,
         });
       } else {
+        /* eslint-disable no-alert */
         alert(message);
       }
     },
