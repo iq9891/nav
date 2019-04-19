@@ -3519,6 +3519,21 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+em-cookie@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/em-cookie/-/em-cookie-1.1.1.tgz#fdf4cccaa71320fb694188807df0eae16ee312af"
+  integrity sha512-iBVYWgqbseaMlEgFQ+ZC2HrKi65TqLBx79CGLpewk6naaIkKKm8e5rgbifovD6QCg6hQv24gTQIYiYL7nlHIwQ==
+
+em-jsonp@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/em-jsonp/-/em-jsonp-1.0.4.tgz#589d25b3079730e64faf225cf5336eae8aa72e0c"
+  integrity sha512-eDmjFMp7UUhkGgbsNGr4OSlxHnTeQJATRoh/oTMbhh8prv1WGOYuTpfC2HeP6cKirF3aZfe/Y7MfwUA3hfi8ug==
+
+emlogin@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/emlogin/-/emlogin-0.3.1.tgz#e8344fd9e3df544de150e7b04b0f7a7d0bc6f530"
+  integrity sha512-tf/cA+lM94oZfTDRWY3G4BLvmYvF1kqmtx9XgBfE5Go2bosS0POokkPiV7kWSqQim38k7pfeWU27Yd3wb8+Xpg==
+
 emoji-regex@^7.0.1:
   version "7.0.3"
   resolved "http://registry.npm.taobao.org/emoji-regex/download/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
