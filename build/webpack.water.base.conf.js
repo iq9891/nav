@@ -29,7 +29,6 @@ module.exports = {
     extensions: ['.js', '.md', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'login$': 'emlogin/dist/login/Login',
     }
   },
   performance: {
@@ -57,11 +56,11 @@ module.exports = {
       commonjs2: 'em-cookie',
       amd: 'em-cookie'
     },
-    login: {
-      root: 'login',
-      commonjs: 'login',
-      commonjs2: 'login',
-      amd: 'login'
+    ['emlogin']: {
+      root: 'emlogin',
+      commonjs: 'emlogin',
+      commonjs2: 'emlogin',
+      amd: 'emlogin'
     },
   },
   mode: 'development',

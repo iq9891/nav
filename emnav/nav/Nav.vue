@@ -88,8 +88,7 @@
 
 <script>
 import emCookie from 'em-cookie';
-/* eslint-disable import/extensions */
-import WLogin from 'login';
+import login from 'emlogin';
 import logoutpc from './logoutpc';
 import ajax from './ajax';
 
@@ -289,7 +288,7 @@ export default {
     },
   },
   components: {
-    WLogin,
+    WLogin: login.PcTem,
     emCookie,
   },
 };
