@@ -3142,15 +3142,17 @@ em-cookie@^1.1.1:
 em-jsonp@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/em-jsonp/-/em-jsonp-1.0.4.tgz#589d25b3079730e64faf225cf5336eae8aa72e0c"
+  integrity sha512-eDmjFMp7UUhkGgbsNGr4OSlxHnTeQJATRoh/oTMbhh8prv1WGOYuTpfC2HeP6cKirF3aZfe/Y7MfwUA3hfi8ug==
 
 em-normalize@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/em-normalize/-/em-normalize-1.0.2.tgz#fc12f05697d1c747f78f6670a66b4fcb63968435"
+  integrity sha512-udfC+9LCXZSN+xQX6nscang/e8w+YBtiuhs08YjBXjKZh3HEJp8ir/w4NCa1KkrRBbC67Su1l3pC8bAINHRbpw==
 
-emlogin@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/emlogin/-/emlogin-0.3.1.tgz#e8344fd9e3df544de150e7b04b0f7a7d0bc6f530"
-  integrity sha512-tf/cA+lM94oZfTDRWY3G4BLvmYvF1kqmtx9XgBfE5Go2bosS0POokkPiV7kWSqQim38k7pfeWU27Yd3wb8+Xpg==
+emlogin@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/emlogin/-/emlogin-0.3.2.tgz#b0fb800146fa8ccc57cb3917e241b0bd7bc83bf1"
+  integrity sha512-WNXqfI2KegUhjvSgfFAE/5U/4KpqAKFZ4MF/8ENRkXkHkv+KMWZnlRWfcT/mwQIi5NjipJn0XnnibWHBBzx6Ug==
 
 emojis-list@^2.0.0:
   version "2.1.0"

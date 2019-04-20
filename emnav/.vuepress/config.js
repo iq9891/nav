@@ -19,13 +19,4 @@ module.exports = {
       '/nav/zh-cn',
     ]
   },
-  configureWebpack: (config, isServer) => {
-    if (!isServer) {
-      // 修改客户端的 webpack 配置
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        'login$': 'emlogin/dist/login/Login',
-      };
-    }
-  }
 }
