@@ -88,7 +88,8 @@
 
 <script>
 import emCookie from 'em-cookie';
-import WLogin from 'emlogin/dist/login/Login';
+/* eslint-disable import/extensions */
+import WLogin from 'login';
 import logoutpc from './logoutpc';
 import ajax from './ajax';
 

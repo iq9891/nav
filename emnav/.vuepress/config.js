@@ -16,8 +16,16 @@ module.exports = {
     editLinkText: '帮助我们改善此页面！',
     sidebar: [
       '/',
-      '/pc/zh-cn',
-      '/wap/zh-cn',
+      '/nav/zh-cn',
     ]
+  },
+  configureWebpack: (config, isServer) => {
+    if (!isServer) {
+      // 修改客户端的 webpack 配置
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'login$': 'emlogin/dist/login/Login',
+      };
+    }
   }
 }

@@ -46,6 +46,7 @@
 |langHandle|点击语言版本的方法。如果有点击语言之后保存语言调用，没有点击保存之后刷新。|Function|否|无|
 
 <script>
+import WLogin from 'emlogin/dist/login/Login';
 import WNav from './Nav';
 
 export default {
@@ -61,14 +62,19 @@ export default {
     };
   },
   components: {
+    WLogin,
     WNav,
   },
 };
 </script>
 
-<style>
+<style lang="scss">
 @import './nav.scss';
 @import '../../node_modules/emlogin/dist/login/style/login.css';
+
+.content:not(.custom) {
+  max-width: 1300px;
+}
 .page {
   position: relative;
   z-index: 222;

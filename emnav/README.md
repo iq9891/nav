@@ -4,7 +4,7 @@ title: 'Nav'
 description: 'Nav 的组件'
 heroImage: /logo.png
 actionText: 快速上手
-actionLink: /nav
+actionLink: /nav/zh-cn
 features:
 - title: 简洁至上
   details: 极简易的使用，超凡脱俗的用户体验。
