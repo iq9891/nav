@@ -66,6 +66,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel?cacheDirectory',
+        exclude: [resolve('node_modules')],
       },
       ...utils.styleLoaders({
         sourceMap: true,
