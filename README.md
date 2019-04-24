@@ -2,17 +2,17 @@
 
 > Vue.js 2.x C端的业务组件。
 
-[![emlogin](https://img.shields.io/npm/v/emlogin.svg?style=flat-square)](https://www.npmjs.org/package/emlogin)
-[![NPM downloads](http://img.shields.io/npm/dm/emlogin.svg?style=flat-square)](https://npmjs.org/package/emlogin)
-[![Package Quality](http://npm.packagequality.com/shield/emlogin.svg)](http://packagequality.com/#?package=emlogin)
-[![NPM downloads](https://img.shields.io/npm/dt/emlogin.svg?style=flat-square)](https://npmjs.org/package/emlogin)
+[![emnav](https://img.shields.io/npm/v/emnav.svg?style=flat-square)](https://www.npmjs.org/package/emnav)
+[![NPM downloads](http://img.shields.io/npm/dm/emnav.svg?style=flat-square)](https://npmjs.org/package/emnav)
+[![Package Quality](http://npm.packagequality.com/shield/emnav.svg)](http://packagequality.com/#?package=emnav)
+[![NPM downloads](https://img.shields.io/npm/dt/emnav.svg?style=flat-square)](https://npmjs.org/package/emnav)
 
 [![Sauce Labs Test Status (for master branch)](https://badges.herokuapp.com/browsers?googlechrome=7&firefox=7&microsoftedge=10&iexplore=9&safari=10.10)](https://saucelabs.com/u/_wmhilton)
 
 ## 安装
 
 ```
-$ yarn add emlogin
+$ yarn add emnav
 ```
 
 ## 需要的环境
