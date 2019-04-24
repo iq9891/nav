@@ -49,7 +49,7 @@
     <div v-if="showMask" class="w-nav-mask"></div>
     <div v-if="showMask" class="w-nav-modal">
       <p class="w-nav-modal-close">
-        <img @click="close" src="https://static2.evente.cn/static/img/login-icon-close1.png">
+        <img @click="close" src="https://static2.evente.cn/static/img/login-icon-close2.png">
       </p>
       <p class="w-nav-modal-title">Ticket Buyer</p>
       <div class="w-nav-modal-box">
