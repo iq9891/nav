@@ -10,6 +10,9 @@
           @mouseover="mouseover(true)"
           @mouseout="mouseout(true)"
           class="w-nav-box-main-new"
+          :class="{
+            ['w-nav-box-main-new-english']: !isChina
+          }"
           @click="myOrder"
         >{{order}}
           <div v-show="orderFlag" class="w-nav-box-main-new-erweima">
@@ -22,6 +25,9 @@
           @mouseout="mouseout(false)"
           href="javascript:;"
           class="w-nav-box-main-new"
+          :class="{
+            ['w-nav-box-main-new-english']: !isChina
+          }"
           @click="organizer"
         >主办方管理
           <div v-show="erweimaFlag" class="w-nav-box-main-new-erweima" style="left:-20px;">
@@ -32,15 +38,28 @@
           v-if="loginFlg"
           href="javascript:;"
           class="w-nav-box-main-new"
+          :class="{
+            ['w-nav-box-main-new-english']: !isChina
+          }"
           @click="logoutFun"
         >{{logout}}</a>
         <a
           v-if="!loginFlg"
           href="javascript:;"
           class="w-nav-box-main-new"
+          :class="{
+            ['w-nav-box-main-new-english']: !isChina
+          }"
           @click="loginFun"
         >{{login}}</a>
-        <a href="javascript:;" class="w-nav-box-main-new" @click="languageFun">{{language}}</a>
+        <a
+          href="javascript:;"
+          class="w-nav-box-main-new"
+          :class="{
+              ['w-nav-box-main-new-english']: !isChina
+          }"
+          @click="languageFun"
+        >{{language}}</a>
         <div v-if="isChina" class="w-nav-box-main-btn" >
           <img @click="release" class="w-nav-box-main-btn-icon" src="https://static2.evente.cn/static/img/nav-icon-release1.png"/>
         </div>
