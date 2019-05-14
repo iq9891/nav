@@ -58,6 +58,7 @@
           :class="{
               ['w-nav-box-main-new-english']: !isChina
           }"
+          v-if="englishEnter"
           @click="languageFun"
         >{{language}}</a>
         <div v-if="isChina" class="w-nav-box-main-btn" >
@@ -131,6 +132,7 @@ export default {
     };
   },
   props: {
+    englishEnter: Boolean,
     login: { // 登录文案
       type: String,
       default: '登录',
