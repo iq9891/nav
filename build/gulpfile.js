@@ -1,5 +1,3 @@
-'use strict';
-
 var gulp = require( 'gulp' );
 var postcss = require( 'gulp-postcss' );
 var cssmin = require( 'gulp-cssmin' );
