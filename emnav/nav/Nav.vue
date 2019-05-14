@@ -15,7 +15,7 @@
           }"
           @click="myOrder"
         >{{order}}
-          <div v-show="orderFlag" class="w-nav-box-main-new-erweima">
+          <div v-show="isChina && orderFlag" class="w-nav-box-main-new-erweima">
             <img class="w-nav-box-main-new-erweima-img" src="https://static2.evente.cn/static/img/nav-icon-order1.jpg" alt="">
           </div>
         </a>
