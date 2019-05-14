@@ -9,6 +9,10 @@
 
 [![Sauce Labs Test Status (for master branch)](https://badges.herokuapp.com/browsers?googlechrome=7&firefox=7&microsoftedge=10&iexplore=9&safari=10.10)](https://saucelabs.com/u/_wmhilton)
 
+## 环境
+
+- node 9
+
 ## API
 
 ### 方法
