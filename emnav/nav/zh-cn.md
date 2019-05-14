@@ -26,6 +26,7 @@
 
 |参数|说明|类型|是否必填|默认值|
 |---|----|---|-------|-----|
+|englishEnter|是否开启英文版|Boolean|是|false|
 |loginFlg|是否登录|Boolean|是|false|
 |imgLogo|主办logo|String|否|活动易logo|
 |login|登录不同版本文案|String|否|登录|
