@@ -269,8 +269,8 @@ export default {
       } else {
         this.error = false;
         ajax({
-          type: 'GET',
-          action: `${this.sendEmailEnglishAction}?email=${this.email}`,
+          type: 'POST',
+          action: `${this.sendEmailEnglishAction}?mail=${this.email}&org_id=${this.orgid}`,
           onSuccess: (res) => {
             if (res.code === 10000) {
               this.close();
